@@ -17,6 +17,7 @@
 
         <module>lesson01-basic-spring-application</module>
         <module>lesson01-spring-di-class-path-scanning</module>
+        <module>lesson01-spring-di-java-config</module>
     </modules>
 
     <build>
