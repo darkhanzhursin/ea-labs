@@ -14,10 +14,11 @@
     <description>CS544 - Enterprise Architecture Lesson 1 Examples</description>
 
     <modules>
-
         <module>lesson01-basic-spring-application</module>
         <module>lesson01-spring-di-class-path-scanning</module>
         <module>lesson01-spring-di-java-config</module>
+        <module>lesson01-spring-di-most-simple-config</module>
+        <module>lesson01-spring-di-xml</module>
     </modules>
 
     <build>
