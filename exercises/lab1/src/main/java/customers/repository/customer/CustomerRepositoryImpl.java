@@ -1,4 +1,4 @@
-package customers.repository;
+package customers.repository.customer;
 
 import customers.domain.Customer;
 import customers.integration.logging.Logger;

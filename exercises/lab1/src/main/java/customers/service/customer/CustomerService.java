@@ -1,4 +1,4 @@
-package customers.service;
+package customers.service.customer;
 
 public interface CustomerService {
 

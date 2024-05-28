@@ -1,9 +1,9 @@
-package customers.service;
+package customers.service.customer;
 
 import customers.domain.Address;
 import customers.domain.Customer;
 import customers.integration.ems.EmailSender;
-import customers.repository.CustomerRepository;
+import customers.repository.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
