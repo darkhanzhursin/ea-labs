@@ -4,17 +4,22 @@ import customers.domain.Address;
 import customers.domain.Customer;
 import customers.integration.ems.EmailSender;
 import customers.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
 	CustomerRepository customerRepository;
 
 	EmailSender emailSender;
 
+	@Autowired
 	public void setCustomerRepository(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
 	}
 
+	@Autowired
 	public void setEmailSender(EmailSender emailSender) {
 		this.emailSender = emailSender;
 	}

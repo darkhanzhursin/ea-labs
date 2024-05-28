@@ -2,7 +2,9 @@ package customers.repository;
 
 import customers.domain.Customer;
 import customers.integration.logging.Logger;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CustomerRepositoryImpl implements CustomerRepository{
 
 	private Logger logger;
