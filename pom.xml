@@ -19,7 +19,8 @@
 	<description>CS544 - Enterprise Architecture Codebase</description>
 	<modules>
 		<module>examples</module>
-	</modules>
+        <module>exercises</module>
+    </modules>
 
 	<properties>
 		<java.version>17</java.version>

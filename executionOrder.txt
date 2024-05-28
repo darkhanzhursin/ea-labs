@@ -1,0 +1,10 @@
+1. Instantiate an instance of ApplicationContext
+2. Start rreading abd processing config (XML, @, Java, Hybrid)
+3. Detect beans and start instantiating "eager" beans
+    3a) If DI is container => Do DI
+4. Property/Field injection
+5. Call the init methods (@PostConstruct) if exists
+6. Call run();
+7. App runs
+8. App shutdown
+9. Call destroy methods (@PreDestroy)
