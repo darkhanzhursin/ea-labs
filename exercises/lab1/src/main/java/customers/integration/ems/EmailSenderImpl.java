@@ -1,9 +1,7 @@
 package customers.integration.ems;
 
 import customers.integration.logging.Logger;
-import org.springframework.stereotype.Service;
 
-@Service
 public class EmailSenderImpl implements EmailSender {
 
 	String outgoingMailServer = "smtp.acme.com";
