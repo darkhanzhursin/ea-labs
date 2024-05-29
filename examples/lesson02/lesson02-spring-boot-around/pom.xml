@@ -5,22 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>cs544-examples</artifactId>
+        <artifactId>lesson02</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>lesson02</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>lesson02-spring-boot-around</artifactId>
 
-    <name>cs544-lesson02</name>
-    <description>CS544 - Enterprise Architecture Lesson 2 Examples</description>
-    <modules>
-        <module>lesson02-spring-boot-aop</module>
-        <module>lesson02-spring-boot-application</module>
-        <module>lesson02-spring-boot-around</module>
-        <module>lesson02-spring-boot-demo</module>
-        <module>lesson02-spring-boot-profiles</module>
-    </modules>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
