@@ -5,18 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>ea-labs</artifactId>
+        <artifactId>cs544-exercises</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cs544-exercises</artifactId>
+    <artifactId>lab2</artifactId>
     <packaging>pom</packaging>
-
-    <name>cs544-exercises</name>
-    <description>CS544 - Enterprise Architecture Coding Exercises</description>
+    <name>lab 2</name>
     <modules>
-        <module>lab1</module>
-        <module>lab2</module>
+        <module>lab2PartA</module>
+        <module>lab2PartB</module>
+        <module>BankApplication</module>
     </modules>
 
     <build>

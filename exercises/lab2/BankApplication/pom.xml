@@ -5,19 +5,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>ea-labs</artifactId>
+        <artifactId>lab2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cs544-exercises</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>BankApplication</artifactId>
 
-    <name>cs544-exercises</name>
-    <description>CS544 - Enterprise Architecture Coding Exercises</description>
-    <modules>
-        <module>lab1</module>
-        <module>lab2</module>
-    </modules>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
