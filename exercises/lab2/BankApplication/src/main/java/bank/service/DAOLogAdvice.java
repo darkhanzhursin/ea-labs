@@ -1,7 +1,5 @@
 package bank.service;
 
-import bank.integration.logging.Logger;
-import bank.repository.AccountRepositoryImpl;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

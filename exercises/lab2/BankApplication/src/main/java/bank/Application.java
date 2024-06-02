@@ -1,8 +1,9 @@
 package bank;
 
-import bank.domain.Account;
+import bank.domain.account.Account;
 import bank.domain.AccountEntry;
 import bank.domain.Customer;
+import bank.domain.account.AccountDTO;
 import bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
