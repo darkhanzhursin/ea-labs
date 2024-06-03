@@ -1,9 +1,6 @@
 package domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class OrderLine {
@@ -14,7 +11,7 @@ public class OrderLine {
 
     private int quantity;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Product product;
 
     public OrderLine() {
