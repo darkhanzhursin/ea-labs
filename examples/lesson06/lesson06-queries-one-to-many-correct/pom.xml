@@ -5,18 +5,30 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>cs544-examples</artifactId>
+        <artifactId>lesson06</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>lesson06</artifactId>
+    <artifactId>lesson06-queries-one-to-many-correct</artifactId>
 
-    <packaging>pom</packaging>
-    <modules>
-        <module>lesson06-queries</module>
-        <module>lesson06-queries-many-to-one-correct</module>
-        <module>lesson06-queries-one-to-many-correct</module>
-    </modules>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
