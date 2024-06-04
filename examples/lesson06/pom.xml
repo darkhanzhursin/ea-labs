@@ -1,23 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>ea-labs</artifactId>
+        <artifactId>cs544-examples</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cs544-examples</artifactId>
+    <artifactId>lesson06</artifactId>
+
     <packaging>pom</packaging>
-
-    <name>cs544-examples</name>
-    <description>CS544 - Enterprise Architecture Coding Examples</description>
-
     <modules>
-        <module>lesson01</module>
-        <module>lesson02</module>
-        <module>lesson04</module>
-        <module>lesson06</module>
+        <module>lesson06-queries</module>
     </modules>
 
     <build>
@@ -35,4 +31,5 @@
             </plugins>
         </pluginManagement>
     </build>
+
 </project>
