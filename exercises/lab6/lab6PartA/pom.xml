@@ -5,24 +5,30 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ealabs</groupId>
-        <artifactId>ea-labs</artifactId>
+        <artifactId>lab6</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cs544-exercises</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>lab6PartA</artifactId>
 
-    <name>cs544-exercises</name>
-    <description>CS544 - Enterprise Architecture Coding Exercises</description>
-    <modules>
-        <module>lab1</module>
-        <module>lab2</module>
-        <module>lab3</module>
-        <module>lab3JPA</module>
-        <module>lab4</module>
-        <module>lab5</module>
-        <module>lab6</module>
-    </modules>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -35,6 +41,10 @@
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
             </plugins>
         </pluginManagement>
