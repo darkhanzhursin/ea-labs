@@ -51,7 +51,12 @@ public class Application implements CommandLineRunner {
                 payment3, doctor2);
         Appointment appointment4 = new Appointment("14-11-2008", patient1,
                 payment4, doctor1);
-		appointmentRepository.saveAll(List.of(appointment1, appointment2, appointment3, appointment4));
+		//appointmentRepository.saveAll(List.of(appointment1, appointment2, appointment3, appointment4));
+        appointmentRepository.save(appointment1);
+        appointmentRepository.save(appointment2);
+        appointmentRepository.save(appointment3);
+        appointmentRepository.save(appointment4);
+
     }
 
 }
