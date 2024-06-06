@@ -1,4 +1,4 @@
-package bank.service.account;
+package bank.service.mapper;
 
 import bank.domain.account.Account;
 import bank.domain.account.AccountDTO;

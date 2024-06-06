@@ -1,12 +1,13 @@
 package bank.service;
 
 import bank.domain.Customer;
-import bank.domain.account.Account;
-import bank.domain.account.AccountDTO;
+import bank.domain.Account;
+import bank.dto.AccountDTO;
 import bank.integration.jms.JMSSender;
 import bank.integration.logging.Logger;
 import bank.repository.AccountRepository;
 import bank.service.mapper.AccountAdapter;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class AccountServiceImpl implements AccountService {
 
     private AccountRepository accountRepository;
@@ -33,28 +35,28 @@ public class AccountServiceImpl implements AccountService {
     public AccountDTO createAccount(long accountNumber, String customerName) {
         Customer customer = new Customer(customerName);
         Account account = new Account(accountNumber);
+        account.setCustomer(customer);
         accountRepository.save(account);
-        return AccountAdapter.getAccountDTOFromAccount(account);
+        logger.log("createAccount with parameters accountNumber= "+accountNumber+" , customerName= "+customerName);
+        return AccountAdapter.toDTO(account);
     }
 
     @Override
     public AccountDTO getAccount(long accountNumber) throws SQLException {
         Optional<Account> account = accountRepository.findById(accountNumber);
         if (!account.isPresent()) throw new SQLException("Account not found!");
-        return AccountAdapter.getAccountDTOFromAccount(account.get());
+        return account.map(AccountAdapter::toDTO).orElse(null);
     }
 
     @Override
-    public Collection<Account> getAllAccounts() {
-        List<Account> accounts = accountRepository.findAll();
-        return accounts;
+    public Collection<AccountDTO> getAllAccounts() {
+        Collection<Account> accounts = accountRepository.findAll();
+        return AccountAdapter.toDTOs(accounts);
     }
 
     @Override
     public void deposit(long accountNumber, double amount) throws SQLException {
-        Optional<Account> accountOpt = accountRepository.findById(accountNumber);
-        if (!accountOpt.isPresent()) throw new SQLException("Account not found!");
-        Account account = accountOpt.get();
+        Account account = accountRepository.findByAccountNumber(accountNumber);
         account.deposit(amount);
         accountRepository.save(account);
         logger.log("deposit with parameters accountNumber= "+accountNumber+" , amount= "+amount);
@@ -65,9 +67,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void withdraw(long accountNumber, double amount) throws SQLException {
-        Optional<Account> accountOpt = accountRepository.findById(accountNumber);
-        if (!accountOpt.isPresent()) throw new SQLException("Account not found!");
-        Account account = accountOpt.get();
+        Account account = accountRepository.findByAccountNumber(accountNumber);
         account.withdraw(amount);
         accountRepository.save(account);
         logger.log("withdraw with parameters accountNumber= "+accountNumber+" , amount= "+amount);
@@ -75,10 +75,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void depositEuros(long accountNumber, double amount) throws SQLException {
-        Optional<Account> accountOpt = accountRepository.findById(accountNumber);
-        if (!accountOpt.isPresent()) throw new SQLException("Account not found!");
+        Account account = accountRepository.findByAccountNumber(accountNumber);
         double amountDollars = currencyConverter.euroToDollars(amount);
-        Account account = accountOpt.get();
         account.deposit(amountDollars);
         accountRepository.save(account);
         logger.log("depositEuros with parameters accountNumber= "+accountNumber+" , amount= "+amount);
@@ -89,10 +87,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void withdrawEuros(long accountNumber, double amount) throws SQLException {
-        Optional<Account> accountOpt = accountRepository.findById(accountNumber);
-        if (!accountOpt.isPresent()) throw new SQLException("Account not found!");
+        Account account = accountRepository.findByAccountNumber(accountNumber);
         double amountDollars = currencyConverter.euroToDollars(amount);
-        Account account = accountOpt.get();
         account.withdraw(amountDollars);
         accountRepository.save(account);
         logger.log("withdrawEuros with parameters accountNumber= "+accountNumber+" , amount= "+amount);
@@ -101,10 +97,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void transferFunds(long fromAccountNumber, long toAccountNumber, double amount, String description) {
-        Optional<Account> fromAccountOpt = accountRepository.findById(fromAccountNumber);
-        Optional<Account> toAccountOpt = accountRepository.findById(toAccountNumber);
-        Account fromAccount = fromAccountOpt.get();
-        Account toAccount = toAccountOpt.get();
+        Account fromAccount = accountRepository.findByAccountNumber(fromAccountNumber);
+        Account toAccount = accountRepository.findByAccountNumber(toAccountNumber);
         fromAccount.transferFunds(toAccount, amount, description);
         accountRepository.save(fromAccount);
         accountRepository.save(toAccount);
