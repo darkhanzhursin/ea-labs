@@ -1,0 +1,10 @@
+1) Type a URL in browser and hit enter
+2) Browser sends a HTTP request to server
+3) Web container receives the HTTP request
+4) Web container deserializes the request (HttpServletRequest) - JavaEE
+5) "   " calls "FrontController" (DispatcherServlet)
+6) FrontController maps request to particular controller method and calls it
+7) Controller computes response
+8) Controller returns response to FrontController
+9) FrontController renders response and returns to Container
+10) Container returns response to client
