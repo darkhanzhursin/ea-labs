@@ -3,7 +3,6 @@ package bank.service;
 import bank.dto.request.DepositRequest;
 import bank.dto.response.AccountDTO;
 
-import java.sql.SQLException;
 import java.util.Collection;
 
 public interface AccountService {
