@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>PartC</module>
+        <module>PartC-c</module>
     </modules>
     <build>
         <pluginManagement>
