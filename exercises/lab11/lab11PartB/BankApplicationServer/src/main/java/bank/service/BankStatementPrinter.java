@@ -1,26 +1,30 @@
 package bank.service;
 
-import bank.dto.response.AccountDTO;
-import bank.events.ChangeEvent;
-import org.springframework.beans.factory.annotation.Autowired;
+import bank.domain.Account;
+import bank.repository.AccountRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
 @Component
+@Transactional
 public class BankStatementPrinter {
 
-    @Autowired
-    private AccountService accountService;
+   private final AccountRepository accountRepository;
+
+    public BankStatementPrinter(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     @Scheduled(fixedRate = 20000)
     public void print() {
-        Collection<AccountDTO> list = accountService.getAllAccounts();
-        for (AccountDTO account : list) {
-            System.out.println(account.getAccountNumber());
-            System.out.println(account.getCustomerName());
+        Collection<Account> accounts = accountRepository.findAll();
+
+        System.out.printf("Found %d accounts\n", accounts.size());
+        for (Account account : accounts) {
+            System.out.println(account);
         }
-        System.out.println("Bank statement printer");
     }
 }

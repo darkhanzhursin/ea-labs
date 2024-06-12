@@ -7,31 +7,26 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class Event {
+public class TraceRecord {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private LocalDateTime date;
+    private LocalDateTime timestamp = LocalDateTime.now();
     private long accountNumber;
     private double amount;
+    private String operation;
 
-    public Event() {
+    public TraceRecord() {
     }
 
-    public Event(LocalDateTime date, long accountNumber, double amount) {
-        this.date = date;
-        this.accountNumber = accountNumber;
-        this.amount = amount;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setTimestamp(LocalDateTime date) {
+        this.timestamp = date;
     }
 
     public long getAccountNumber() {
@@ -48,5 +43,13 @@ public class Event {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 }

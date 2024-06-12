@@ -46,14 +46,4 @@ public class AccountDTO {
     public List<AccountEntryDTO> getEntryList() {
         return entryList;
     }
-
-    @Override
-    public String toString() {
-        return "AccountDTO{" +
-                "accountNumber=" + accountNumber +
-                ", balance=" + balance +
-                ", customerName='" + customerName + '\'' +
-                ", entryList=" + entryList +
-                '}';
-    }
 }
