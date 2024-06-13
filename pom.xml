@@ -20,6 +20,7 @@
 	<modules>
 		<module>examples</module>
         <module>exercises</module>
+        <module>faculty</module>
     </modules>
 
 	<properties>
