@@ -1,8 +1,8 @@
 package app;
 
-import domain.Address;
-import domain.CreditCard;
-import domain.Customer;
+import accounts.domain.Address;
+import accounts.domain.CreditCard;
+import accounts.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

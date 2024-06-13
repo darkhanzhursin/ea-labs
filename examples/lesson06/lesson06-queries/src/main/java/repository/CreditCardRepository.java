@@ -1,6 +1,6 @@
 package repository;
 
-import domain.CreditCard;
+import accounts.domain.CreditCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

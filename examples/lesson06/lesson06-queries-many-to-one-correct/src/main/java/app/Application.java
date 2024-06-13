@@ -1,7 +1,7 @@
 package app;
 
-import domain.Address;
-import domain.Customer;
+import accounts.domain.Address;
+import accounts.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
